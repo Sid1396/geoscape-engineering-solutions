@@ -68,7 +68,7 @@ export default function Contact() {
               <div>
                 <h2 className="text-2xl font-display font-bold text-foreground mb-6">Get in Touch</h2>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-4 group">
+                  {/* <div className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary group-hover:scale-105">
                       <MapPin className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
@@ -79,7 +79,7 @@ export default function Contact() {
                         Gurugram, Haryana 122001
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary group-hover:scale-105">
                       <Phone className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -87,8 +87,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-foreground">Phone</h3>
                       <p className="text-muted-foreground text-sm mt-1">
-                        <a href="tel:+911234567890" className="hover:text-primary transition-colors">+91 12345 67890</a><br />
-                        <a href="tel:+911234567891" className="hover:text-primary transition-colors">+91 12345 67891</a>
+                        <a href="tel:+918655212293" className="hover:text-primary transition-colors">+91 86552 12293</a>
                       </p>
                     </div>
                   </div>
@@ -99,8 +98,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-muted-foreground text-sm mt-1">
-                        <a href="mailto:info@geoscapeengineering.in" className="hover:text-primary transition-colors">info@geoscapeengineering.in</a><br />
-                        <a href="mailto:projects@geoscapeengineering.in" className="hover:text-primary transition-colors">projects@geoscapeengineering.in</a>
+                        <a href="mailto:info@geoscapesolutions.com" className="hover:text-primary transition-colors">info@geoscapesolutions.com</a>
                       </p>
                     </div>
                   </div>
@@ -211,9 +209,9 @@ export default function Contact() {
           </p>
           <div className="mt-8">
             <Button variant="hero" size="xl" asChild className="group">
-              <a href="tel:+911234567890">
+              <a href="tel:+918655212293">
                 <Phone className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
-                +91 12345 67890
+                +91 86552 12293
               </a>
             </Button>
           </div>

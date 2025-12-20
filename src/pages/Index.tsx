@@ -317,7 +317,7 @@ export default function Index() {
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <a href="tel:+911234567890">Call Us Now</a>
+              <a href="tel:+918655212293">Call Us Now</a>
             </Button>
           </div>
         </div>
