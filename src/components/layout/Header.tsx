@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useScrollHeader } from "@/hooks/use-scroll-animation";
+import logo from "@/assets/logo.png";
 
 const services = [
   { name: "Surveying & Geospatial", href: "/services/surveying" },
@@ -44,9 +45,11 @@ export function Header() {
       <nav className="container flex h-16 items-center justify-between lg:h-20">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-105">
-            <span className="font-display text-xl font-bold text-primary-foreground">G</span>
-          </div>
+          <img 
+            src={logo} 
+            alt="Geoscape Engineering Solutions" 
+            className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
           <div className="hidden sm:block">
             <span className="font-display text-lg font-semibold text-foreground leading-tight">Geoscape</span>
             <span className="block text-xs text-muted-foreground">Engineering Solutions</span>

@@ -68,18 +68,19 @@ export default function Contact() {
               <div>
                 <h2 className="text-2xl font-display font-bold text-foreground mb-6">Get in Touch</h2>
                 <div className="space-y-4">
-                  {/* <div className="flex items-start gap-4 group">
+                  <div className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary group-hover:scale-105">
                       <MapPin className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Office Address</h3>
                       <p className="text-muted-foreground text-sm mt-1">
-                        123 Business Park, Sector 15<br />
-                        Gurugram, Haryana 122001
+                        B-05, Plot Number 612, Anita CHS LTD<br />
+                        Charkop Sector 6, Near Charkop Petrol Pump<br />
+                        Kandivali west, Mumbai 400067
                       </p>
                     </div>
-                  </div> */}
+                  </div>
                   <div className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary group-hover:scale-105">
                       <Phone className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -87,7 +88,8 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-foreground">Phone</h3>
                       <p className="text-muted-foreground text-sm mt-1">
-                        <a href="tel:+918655212293" className="hover:text-primary transition-colors">+91 86552 12293</a>
+                        <a href="tel:+918425984962" className="hover:text-primary transition-colors">+91 84259 84962</a><br />
+                        <a href="tel:+918104647171" className="hover:text-primary transition-colors">+91 81046 47171</a>
                       </p>
                     </div>
                   </div>
@@ -209,9 +211,9 @@ export default function Contact() {
           </p>
           <div className="mt-8">
             <Button variant="hero" size="xl" asChild className="group">
-              <a href="tel:+918655212293">
+              <a href="tel:+918425984962">
                 <Phone className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
-                +91 86552 12293
+                +91 84259 84962
               </a>
             </Button>
           </div>

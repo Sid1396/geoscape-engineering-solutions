@@ -224,10 +224,10 @@ export default function Index() {
             className={cn("text-center max-w-2xl mx-auto mb-16 scroll-fade-up", processSection.isVisible && "visible")}
           >
             <span className="text-sm font-semibold text-accent uppercase tracking-wider">Our Process</span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold">
+            <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold text-background">
               From Vision to Reality
             </h2>
-            <p className="mt-4 text-slate-light text-lg">
+            <p className="mt-4 text-background/90 text-lg">
               A streamlined four-phase approach that delivers excellence at every step.
             </p>
           </div>
@@ -245,8 +245,8 @@ export default function Index() {
                 <div className="relative z-10 w-16 h-16 mx-auto rounded-full bg-primary flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-110">
                   <span className="text-xl font-bold text-primary-foreground">{item.step}</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-slate-light text-sm">{item.description}</p>
+                <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">{item.title}</h3>
+                <p className="text-background/90 text-sm">{item.description}</p>
               </div>
             ))}
           </div>
@@ -317,7 +317,7 @@ export default function Index() {
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <a href="tel:+918655212293">Call Us Now</a>
+              <a href="tel:+918425984962">Call Us Now</a>
             </Button>
           </div>
         </div>

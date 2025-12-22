@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const services = [
   { name: "Surveying & Geospatial", href: "/services/surveying" },
@@ -23,9 +24,11 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="font-display text-xl font-bold text-primary-foreground">G</span>
-              </div>
+              <img 
+                src={logo} 
+                alt="Geoscape Engineering Solutions" 
+                className="h-12 w-12 object-contain"
+              />
               <div>
                 <span className="font-display text-lg font-semibold text-background leading-tight">Geoscape</span>
                 <span className="block text-xs text-background/90">Engineering Solutions</span>
@@ -74,15 +77,20 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-semibold text-accent">Contact Us</h3>
             <ul className="space-y-3">
-              {/* <li className="flex items-start gap-3 text-sm">
+              <li className="flex items-start gap-3 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 text-background/80 shrink-0 transition-transform duration-300" />
-                <span className="text-background/90">123 Business Park, Sector 15, Gurugram, Haryana 122001</span>
-              </li> */}
-              <li className="flex items-center gap-3 text-sm group">
-                <Phone className="h-4 w-4 text-background/80 shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                <a href="tel:+918655212293" className="text-background/90 hover:text-background transition-all duration-300 hover:scale-110 inline-block">
-                  +91 86552 12293
-                </a>
+                <span className="text-background/90">B-05, Plot Number 612, Anita CHS LTD, Charkop Sector 6, Near Charkop Petrol Pump, Kandivali west, Mumbai 400067</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm">
+                <Phone className="h-4 w-4 mt-0.5 text-background/80 shrink-0 transition-transform duration-300" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+918425984962" className="text-background/90 hover:text-background transition-all duration-300 hover:scale-110 inline-block">
+                    +91 84259 84962
+                  </a>
+                  <a href="tel:+918104647171" className="text-background/90 hover:text-background transition-all duration-300 hover:scale-110 inline-block">
+                    +91 81046 47171
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3 text-sm group">
                 <Mail className="h-4 w-4 text-background/80 shrink-0 transition-transform duration-300 group-hover:scale-110" />
