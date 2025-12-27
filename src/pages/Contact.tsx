@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,36 +7,67 @@ import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
 const services = [
-  "Surveying & Geospatial",
-  "Interior Design",
-  "Construction & PMC",
-  "Landscape & Horticulture",
+  "End-to-end surveying and Geomatic services",
+  "Coastal infrastructure development",
+  "Interior design and space planning",
+  "Construction and integrated consultancy",
+  "Landscape and horticulture services",
   "Multiple Services",
   "Not Sure / General Inquiry",
 ];
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  service: z.string().min(1, "Please select a service"),
+  message: z.string().min(10, "Please provide more details about your project"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
   const formSection = useScrollAnimation();
   const ctaSection = useScrollAnimation();
   
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (data: FormData) => {
+    // Create email subject and body
+    const subject = encodeURIComponent(`Inquiry: ${data.service}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\n` +
+      `Email: ${data.email}\n` +
+      `Phone: ${data.phone}\n` +
+      `Service Required: ${data.service}\n\n` +
+      `Project Details:\n${data.message}`
+    );
+    
+    // Open email client with pre-filled data
+    window.location.href = `mailto:info@geoscapesolutions.com?subject=${subject}&body=${body}`;
+    
     toast({
-      title: "Thank you for your inquiry!",
-      description: "Our team will get back to you within 24 hours.",
+      title: "Opening email client...",
+      description: "Your email client will open with the form details pre-filled.",
     });
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    
+    // Reset form after a short delay
+    setTimeout(() => {
+      reset();
+    }, 500);
   };
 
   return (
@@ -120,18 +150,22 @@ export default function Contact() {
             <div className={cn("lg:col-span-2 scroll-slide-right", formSection.isVisible && "visible")}>
               <div className="bg-card rounded-xl border border-border p-8 hover-lift">
                 <h2 className="text-2xl font-display font-bold text-foreground mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
                         id="name"
                         placeholder="Your name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                        className="transition-all duration-200 focus:scale-[1.01]"
+                        {...register("name")}
+                        className={cn(
+                          "transition-all duration-200 focus:scale-[1.01]",
+                          errors.name && "border-destructive"
+                        )}
                       />
+                      {errors.name && (
+                        <p className="text-sm text-destructive">{errors.name.message}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
@@ -139,39 +173,52 @@ export default function Contact() {
                         id="email"
                         type="email"
                         placeholder="your@email.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        className="transition-all duration-200 focus:scale-[1.01]"
+                        {...register("email")}
+                        className={cn(
+                          "transition-all duration-200 focus:scale-[1.01]",
+                          errors.email && "border-destructive"
+                        )}
                       />
+                      {errors.email && (
+                        <p className="text-sm text-destructive">{errors.email.message}</p>
+                      )}
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">Phone Number *</Label>
                       <Input
                         id="phone"
                         type="tel"
                         placeholder="+91 98765 43210"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="transition-all duration-200 focus:scale-[1.01]"
+                        {...register("phone")}
+                        className={cn(
+                          "transition-all duration-200 focus:scale-[1.01]",
+                          errors.phone && "border-destructive"
+                        )}
                       />
+                      {errors.phone && (
+                        <p className="text-sm text-destructive">{errors.phone.message}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="service">Service Required *</Label>
                       <select
                         id="service"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 focus:scale-[1.01]"
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        required
+                        {...register("service")}
+                        className={cn(
+                          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 focus:scale-[1.01]",
+                          errors.service && "border-destructive"
+                        )}
                       >
                         <option value="">Select a service</option>
                         {services.map((service) => (
                           <option key={service} value={service}>{service}</option>
                         ))}
                       </select>
+                      {errors.service && (
+                        <p className="text-sm text-destructive">{errors.service.message}</p>
+                      )}
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -180,11 +227,15 @@ export default function Contact() {
                       id="message"
                       placeholder="Tell us about your project requirements, location, timeline, and any specific needs..."
                       rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                      className="transition-all duration-200 focus:scale-[1.01]"
+                      {...register("message")}
+                      className={cn(
+                        "transition-all duration-200 focus:scale-[1.01]",
+                        errors.message && "border-destructive"
+                      )}
                     />
+                    {errors.message && (
+                      <p className="text-sm text-destructive">{errors.message.message}</p>
+                    )}
                   </div>
                   <Button type="submit" variant="accent" size="lg" className="w-full md:w-auto group">
                     Send Message

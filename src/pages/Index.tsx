@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, Palette, Building, TreePine } from "lucide-react";
+import { ArrowRight, Compass, Palette, Building, TreePine, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -10,25 +10,31 @@ import engineeringTeamImg from "@/assets/engineering-team-on-site.jpg";
 const services = [
   {
     icon: Compass,
-    title: "Surveying & Geospatial",
-    description: "Precision land, topographic, DGPS, drone, and LiDAR surveys with GIS mapping for accurate project planning.",
+    title: "End-to-end surveying and Geomatic services",
+    description: "Comprehensive surveying solutions including precision land, topographic, DGPS, drone, and LiDAR surveys with GIS mapping for accurate project planning.",
     href: "/services/surveying",
   },
   {
+    icon: Waves,
+    title: "Coastal infrastructure development",
+    description: "In-situ measurements, modelling, and design for coastal infrastructure projects with precision and expertise.",
+    href: "/services/coastal-infrastructure",
+  },
+  {
     icon: Palette,
-    title: "Interior Design",
+    title: "Interior design and space planning",
     description: "Transform spaces with innovative residential and commercial interior solutions, from concept to execution.",
     href: "/services/interior-design",
   },
   {
     icon: Building,
-    title: "Construction",
+    title: "Construction and integrated consultancy",
     description: "End-to-end construction management and project consultancy delivering quality builds on time and budget.",
     href: "/services/construction",
   },
   {
     icon: TreePine,
-    title: "Landscape & Horticulture",
+    title: "Landscape and horticulture services",
     description: "Sustainable landscape design, green roofs, and urban greenery solutions for healthier environments.",
     href: "/services/landscape",
   },
@@ -106,7 +112,7 @@ export default function Index() {
               Survey. Design. Build. <span className="text-accent">Sustain.</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-background/80 leading-relaxed animate-fade-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-              Your trusted partner for end-to-end surveying, interior design, construction, and sustainable landscape development. One team, complete solutions.
+              Your trusted partner for end-to-end surveying, coastal infrastructure development, interior design, construction, and sustainable landscape development. One team, complete solutions.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
               <Button variant="hero" size="xl" asChild className="group">
@@ -135,11 +141,11 @@ export default function Index() {
               Comprehensive Project Solutions
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Four specialized divisions working seamlessly together to deliver exceptional results.
+              Five specialized divisions working seamlessly together to deliver exceptional results.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {services.map((service, index) => (
               <Link
                 key={service.title}

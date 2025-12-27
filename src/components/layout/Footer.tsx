@@ -3,16 +3,16 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const services = [
-  { name: "Surveying & Geospatial", href: "/services/surveying" },
-  { name: "Interior Design", href: "/services/interior-design" },
-  { name: "Construction", href: "/services/construction" },
-  { name: "Landscape & Horticulture", href: "/services/landscape" },
+  { name: "End-to-end surveying and Geomatic services", href: "/services/surveying" },
+  { name: "Coastal infrastructure development", href: "/services/coastal-infrastructure" },
+  { name: "Interior design and space planning", href: "/services/interior-design" },
+  { name: "Construction and integrated consultancy", href: "/services/construction" },
+  { name: "Landscape and horticulture services", href: "/services/landscape" },
 ];
 
 const company = [
   { name: "About Us", href: "/about" },
   { name: "Industries", href: "/industries" },
-  { name: "Sustainability", href: "/sustainability" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -35,7 +35,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-background/90">
-              Your trusted partner for integrated surveying, design, construction, and sustainable development solutions across India.
+              Your trusted partner for integrated surveying, coastal infrastructure development, design, construction, and sustainable development solutions across India.
             </p>
           </div>
 
@@ -106,12 +106,9 @@ export function Footer() {
           <p className="text-sm text-background/80">
             © {new Date().getFullYear()} Geoscape Engineering Solutions. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div>
             <Link to="/privacy" className="text-sm text-background/80 hover:text-background transition-all duration-300 hover:scale-110 inline-block">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-sm text-background/80 hover:text-background transition-all duration-300 hover:scale-110 inline-block">
-              Terms of Service
+              Privacy Policy & Terms of Service
             </Link>
           </div>
         </div>

@@ -4,11 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
+// Import industry images - add your images to src/assets/ folder
+import residentialImg from "@/assets/residential-industry.jpg";
+import commercialImg from "@/assets/commercial-industry.jpg";
+import infrastructureImg from "@/assets/infrastructure-industry.jpg";
 
 const industries = [
   {
     icon: Home,
     name: "Residential",
+    image: residentialImg,
     description: "Individual homes, villas, apartments, and housing societies",
     services: [
       "Land survey and site planning",
@@ -21,6 +26,7 @@ const industries = [
   {
     icon: Building2,
     name: "Commercial",
+    image: commercialImg,
     description: "Offices, retail spaces, hospitality, and healthcare facilities",
     services: [
       "Commercial land assessment",
@@ -33,6 +39,7 @@ const industries = [
   {
     icon: Landmark,
     name: "Infrastructure",
+    image: infrastructureImg,
     description: "Government projects, institutions, and public infrastructure",
     services: [
       "Large-scale surveying and GIS",
@@ -118,8 +125,14 @@ export default function Industries() {
                     "scroll-slide-right",
                     sectionRef.isVisible && "visible"
                   )}>
-                    <div className="aspect-[4/3] rounded-2xl bg-sage flex items-center justify-center hover-lift transition-all duration-300 group">
-                      <industry.icon className="h-24 w-24 text-primary/20 transition-all duration-300 group-hover:text-primary/40 group-hover:scale-110" />
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden hover-lift transition-all duration-300 group shadow-lg">
+                      <img
+                        src={industry.image}
+                        alt={`${industry.name} projects by Geoscape Engineering Solutions`}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-slate/10" />
                     </div>
                   </div>
                 </div>

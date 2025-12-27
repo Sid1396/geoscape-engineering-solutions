@@ -7,10 +7,11 @@ import { useScrollHeader } from "@/hooks/use-scroll-animation";
 import logo from "@/assets/logo.png";
 
 const services = [
-  { name: "Surveying & Geospatial", href: "/services/surveying" },
-  { name: "Interior Design", href: "/services/interior-design" },
-  { name: "Construction", href: "/services/construction" },
-  { name: "Landscape & Horticulture", href: "/services/landscape" },
+  { name: "End-to-end surveying and Geomatic services", href: "/services/surveying" },
+  { name: "Coastal infrastructure development", href: "/services/coastal-infrastructure" },
+  { name: "Interior design and space planning", href: "/services/interior-design" },
+  { name: "Construction and integrated consultancy", href: "/services/construction" },
+  { name: "Landscape and horticulture services", href: "/services/landscape" },
 ];
 
 const navigation = [
@@ -18,7 +19,6 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services", children: services },
   { name: "Industries", href: "/industries" },
-  { name: "Sustainability", href: "/sustainability" },
   { name: "Contact", href: "/contact" },
 ];
 
