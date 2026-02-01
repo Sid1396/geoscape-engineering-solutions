@@ -6,6 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 import heroBg from "@/assets/hero-bg.png";
 import engineeringTeamImg from "@/assets/engineering-team-on-site.jpg";
+import logo from "@/assets/logo.png";
 
 const services = [
   {
@@ -104,26 +105,51 @@ export default function Index() {
         </div>
         
         <div className="container relative z-10 py-20">
-          <div className="max-w-2xl">
-            <span className="inline-block mb-4 px-4 py-1.5 text-sm font-medium bg-primary/20 text-primary-foreground rounded-full animate-fade-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
-              Integrated Solutions • Pan-India Services
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-background leading-tight animate-fade-up opacity-0" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-              Survey. Design. Build. <span className="text-accent">Sustain.</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-background/80 leading-relaxed animate-fade-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-              Your trusted partner for end-to-end surveying, coastal infrastructure development, interior design, construction, and sustainable landscape development. One team, complete solutions.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
-              <Button variant="hero" size="xl" asChild className="group">
-                <Link to="/contact">
-                  Request Consultation
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/services/surveying">Explore Services</Link>
-              </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Content */}
+            <div className="max-w-3xl">
+              {/* Brand Name - Subtle and Elegant */}
+              <div className="mb-6 animate-fade-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
+                <p className="text-lg md:text-xl font-semibold text-background/90 tracking-wide">
+                  Geoscape Engineering Solutions
+                </p>
+                <div className="mt-2 w-20 h-0.5 bg-accent"></div>
+              </div>
+              
+              {/* Main Hero Tagline */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-background leading-tight animate-fade-up opacity-0" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
+                Survey. Design. Build. <span className="text-accent">Sustain.</span>
+              </h1>
+              
+              {/* Description */}
+              <p className="mt-8 text-lg md:text-xl text-background/90 leading-relaxed animate-fade-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+                Your trusted partner for end-to-end surveying, coastal infrastructure development, interior design, construction, and sustainable landscape development. One team, complete solutions.
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
+                <Button variant="hero" size="xl" asChild className="group">
+                  <Link to="/contact">
+                    Request Consultation
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button variant="hero-outline" size="xl" asChild>
+                  <Link to="/services">Explore Services</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column - Logo */}
+            <div className="flex items-center justify-center lg:justify-end animate-fade-up opacity-0" style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl transform scale-150"></div>
+                <img 
+                  src={logo} 
+                  alt="Geoscape Engineering Solutions Logo" 
+                  className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-2xl"
+                />
+              </div>
             </div>
           </div>
         </div>

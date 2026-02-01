@@ -53,7 +53,6 @@ const expertise = [
 
 export default function About() {
   const storySection = useScrollAnimation();
-  const statsSection = useScrollAnimation();
   const visionSection = useScrollAnimation();
   const valuesSection = useScrollAnimation();
   const expertiseSection = useScrollAnimation();
@@ -74,30 +73,6 @@ export default function About() {
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed animate-fade-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
               Founded with a vision to transform how projects are delivered in India, Geoscape Engineering Solutions combines surveying expertise, design innovation, construction excellence, and sustainable practices under one roof.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 md:py-16 bg-primary">
-        <div className="container">
-          <div 
-            ref={statsSection.ref}
-            className={cn("grid grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto scroll-fade-up", statsSection.isVisible && "visible")}
-          >
-            {[
-              { value: "8+", label: "Years Experience" },
-              { value: "10+", label: "Expert Team" },
-            ].map((stat, index) => (
-              <div 
-                key={stat.label}
-                className={cn("p-6 md:p-8 rounded-xl bg-primary-foreground/10 backdrop-blur-sm text-center hover-lift scroll-scale-in", statsSection.isVisible && "visible")}
-                style={{ transitionDelay: `${index * 100 + 200}ms` }}
-              >
-                <div className="text-4xl md:text-5xl font-display font-bold text-primary-foreground">{stat.value}</div>
-                <div className="mt-2 text-sm md:text-base text-primary-foreground/90">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
